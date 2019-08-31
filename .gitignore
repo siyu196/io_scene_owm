@@ -1,0 +1,8 @@
+__pycache__
+*.pyc
+*.blend*
+.idea
+venv
+__pyenv__
+*.code-workspace
+!library.blend

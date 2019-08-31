@@ -4,7 +4,7 @@ bl_info = {
     'version': (3, 0, 0),
     'blender': (2, 80, 0),
     'location': 'File > Import > OWM',
-    'description': 'Import TankLib/DataTool OWM files',
+    'description': 'Import TankLib/DataTool OWM files\nDownloads files from the github repository.',
     'warning': '',
     'wiki_url': '',
     'tracker_url': 'https://github.com/overtools/io_scene_owm/issues',

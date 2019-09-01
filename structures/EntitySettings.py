@@ -1,5 +1,6 @@
 from io_scene_owm.structures import ModelSettings
 
+
 class EntitySettings(ModelSettings):
     import_subentities: bool
 

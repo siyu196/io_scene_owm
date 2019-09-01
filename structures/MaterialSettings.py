@@ -1,5 +1,6 @@
 from io_scene_owm.structures import SettingsBase
 
+
 class MaterialSettings(SettingsBase):
     import_unknown_textures: bool
 

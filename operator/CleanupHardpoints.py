@@ -1,6 +1,7 @@
 import bpy
 from io_scene_owm import bpy_helper
 
+
 class CleanupHardpoints(bpy.types.Operator):
     bl_idname = 'overtools.delete_unused_hardpoints'
     bl_label = 'Delete Unused Hardpoints'

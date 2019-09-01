@@ -1,5 +1,6 @@
 from io_scene_owm.structures import SettingsBase
 
+
 class EffectSettings(SettingsBase):
     import_dmce: bool
     import_cece: bool

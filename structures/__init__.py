@@ -1,6 +1,0 @@
-from io_scene_owm.structures import SettingsBase
-from io_scene_owm.structures import ModelSettings
-from io_scene_owm.structures import MaterialSettings
-from io_scene_owm.structures import MapSettings
-from io_scene_owm.structures import EntitySettings
-from io_scene_owm.structures import EffectSettings

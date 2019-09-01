@@ -1,5 +1,6 @@
 from io_scene_owm.structures import SettingsBase
 
+
 class ModelSettings(SettingsBase):
     uv_displacement_x: float
     uv_displacement_y: float

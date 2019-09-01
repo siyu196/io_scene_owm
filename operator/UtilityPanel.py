@@ -1,5 +1,6 @@
 import bpy
-from io_scene_owm.structures import LoadMaterialLibrary, SaveMaterialLibrary, CleanupHardpoints, CleanupMaterials
+from io_scene_owm.operator import LoadMaterialLibrary, SaveMaterialLibrary, CleanupHardpoints, CleanupMaterials
+
 
 class OvertoolsUtilityPanel(bpy.types.Panel):
     bl_idname = 'OBJECT_PT_select'
@@ -11,8 +12,7 @@ class OvertoolsUtilityPanel(bpy.types.Panel):
     @classmethod
     def poll(cls, context): return True
 
-    def draw_header(self, context):
-        layout = self.layout
+    def draw_header(self, context): pass
 
     def draw(self, context):
         layout = self.layout
@@ -25,7 +25,7 @@ class OvertoolsUtilityPanel(bpy.types.Panel):
         row.prop(bpy.context.scene.overtools_internal_settings, 'b_download', text='Always Download Library')
 
         box = layout.box()
-        box.label(text = 'Cleanup')
+        box.label(text='Cleanup')
         row = box.row()
         row.operator(CleanupHardpoints.bl_idname, text='Unused Hardpoints', icon='OBJECT_DATA')
         row = box.row()

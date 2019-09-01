@@ -1,3 +1,5 @@
+from io_scene_owm.operator import ImportManager
+
 bl_info = {
     'name': 'OWM Import',
     'author': 'overtools',
@@ -11,13 +13,14 @@ bl_info = {
     'category': 'Import-Export'
 }
 
-from io_scene_owm.operator import ImportManager
 
 def register():
     ImportManager.register()
 
+
 def unregister():
     ImportManager.unregister()
 
+
 if __name__ == '__main__':
-    register() 
+    register()

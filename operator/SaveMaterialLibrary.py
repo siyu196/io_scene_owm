@@ -1,5 +1,6 @@
 import bpy
 
+
 class SaveMaterialLibrary(bpy.types.Operator):
     bl_idname = 'overtools.save_library'
     bl_label = 'Save OWM Library'

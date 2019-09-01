@@ -1,5 +1,6 @@
 from io_scene_owm.structures import ModelSettings
 
+
 class MapSettings(ModelSettings):
     import_instanced_models: bool
     import_single_models: bool

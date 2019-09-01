@@ -1,7 +1,7 @@
-from io_scene_owm.structures import SettingsBase
+from io_scene_owm.structures.MaterialSettings import MaterialSettings
 
 
-class ModelSettings(SettingsBase):
+class ModelSettings(MaterialSettings):
     uv_displacement_x: float
     uv_displacement_y: float
     import_normals: bool

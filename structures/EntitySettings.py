@@ -1,4 +1,4 @@
-from io_scene_owm.structures import ModelSettings
+from io_scene_owm.structures.ModelSettings import ModelSettings
 
 
 class EntitySettings(ModelSettings):

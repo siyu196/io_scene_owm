@@ -1,7 +1,8 @@
-from io_scene_owm.structures import SettingsBase
+from io_scene_owm.structures.SettingsBase import OvertoolsSettingsBase
 
 
-class EffectSettings(SettingsBase):
+class EffectSettings(OvertoolsSettingsBase):
+    import_camera: bool
     import_dmce: bool
     import_cece: bool
     import_nece: bool
@@ -11,6 +12,5 @@ class EffectSettings(SettingsBase):
     cleanup_unused_hardpoints: bool
     force_match_framerate: bool
     target_framerate: float
-    import_camera: bool
 
     def replicate_with_filename(self, filename): EffectSettings(filename=filename, **self._asdict())

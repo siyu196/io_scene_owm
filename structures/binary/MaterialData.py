@@ -17,8 +17,8 @@ class MaterialType(Enum):
 
 
 class MaterialInfo(NamedTuple):
-    id: int
-    count: int
+    id: long
+    count: long
     textures: list
     shader: int
 

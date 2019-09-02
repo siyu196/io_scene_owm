@@ -103,4 +103,4 @@ class ImportOvertoolsEffect(bpy.types.Operator, ImportHelper):
 
 
 def topbar_impl(self, context):
-    self.layout.operator(ImportOvertoolsEffect.bl_idname, text="Overtools Effect (.oweffect; .owanim)")
+    self.layout.operator(ImportOvertoolsEffect.bl_idname, text='Overtools Effect (.oweffect; .owanim)')

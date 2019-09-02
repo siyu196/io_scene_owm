@@ -112,4 +112,4 @@ class ImportOvertoolsEntity(bpy.types.Operator, ImportHelper):
 
 
 def topbar_impl(self, context):
-    self.layout.operator(ImportOvertoolsEntity.bl_idname, text="Overtools Entity (.owentity)")
+    self.layout.operator(ImportOvertoolsEntity.bl_idname, text='Overtools Entity (.owentity)')

@@ -6,3 +6,4 @@ venv
 __pyenv__
 *.code-workspace
 !library.blend
+__data__

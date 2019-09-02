@@ -100,4 +100,4 @@ class ImportOvertoolsModel(bpy.types.Operator, ImportHelper):
 
 
 def topbar_impl(self, context):
-    self.layout.operator(ImportOvertoolsModel.bl_idname, text="Overtools Model (.owmdl)")
+    self.layout.operator(ImportOvertoolsModel.bl_idname, text='Overtools Model (.owmdl)')

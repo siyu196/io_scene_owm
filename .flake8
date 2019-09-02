@@ -1,0 +1,8 @@
+[flake8]
+max-line-length = 300
+exclude = 
+    .git,
+    .vscode,
+    __pycache__,
+    __pyenv__,
+    __data__

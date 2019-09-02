@@ -203,4 +203,4 @@ class ImportOvertoolsMap(bpy.types.Operator, ImportHelper):
 
 
 def topbar_impl(self, context):
-    self.layout.operator(ImportOvertoolsMap.bl_idname, text="Overtools Map (.owmap)")
+    self.layout.operator(ImportOvertoolsMap.bl_idname, text='Overtools Map (.owmap)')

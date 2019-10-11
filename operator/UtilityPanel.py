@@ -1,5 +1,5 @@
 import bpy
-from io_scene_owm.operator import LoadMaterialLibrary, SaveMaterialLibrary, CleanupHardpoints, CleanupMaterials
+from io_scene_owm.operator import LoadMaterialLibrary, SaveMaterialLibrary, CleanupMaterials
 
 
 class OvertoolsUtilityPanel(bpy.types.Panel):
@@ -26,7 +26,5 @@ class OvertoolsUtilityPanel(bpy.types.Panel):
 
         box = layout.box()
         box.label(text='Cleanup')
-        row = box.row()
-        row.operator(CleanupHardpoints.bl_idname, text='Unused Hardpoints', icon='OBJECT_DATA')
         row = box.row()
         row.operator(CleanupMaterials.bl_idname, text='Unused Materials', icon='MATERIAL')

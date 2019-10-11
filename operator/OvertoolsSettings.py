@@ -1,5 +1,6 @@
 import bpy
 from bpy.props import BoolProperty, IntProperty
+import io_scene_owm.structures.OvertoolsManagement as OvertoolsManagement
 
 
 class OvertoolsInternalSettings(bpy.types.PropertyGroup):
@@ -8,11 +9,11 @@ class OvertoolsInternalSettings(bpy.types.PropertyGroup):
     i_library_state: IntProperty(update=lambda self, context: self.dummy(context))
 
     def update_logs_alot(self, context):
-        # owm_types.LOG_ALOT = self.b_logsalot
+        OvertoolsManagement.LOG_ALOT = self.b_logsalot
         pass
 
     def update_download(self, context):
-        # owm_types.ALWAYS_DOWNLOAD = self.b_download
+        OvertoolsManagement.ALWAYS_DOWNLOAD = self.b_download
         pass
 
     def dummy(self, context): pass

@@ -2,6 +2,8 @@ import bpy
 from bpy.props import StringProperty, BoolProperty
 from bpy_extras.io_utils import ImportHelper
 from io_scene_owm.structures.MaterialSettings import MaterialSettings
+from io_scene_owm.decoder.OWMATDecoder import decode_material
+import io_scene_owm.structures.OvertoolsManagement as OvertoolsManagement
 
 
 class ImportOvertoolsMaterial(bpy.types.Operator, ImportHelper):
@@ -31,7 +33,8 @@ class ImportOvertoolsMaterial(bpy.types.Operator, ImportHelper):
             filename=self.filepath,
             import_unknown_textures=self.import_unknown_textures
         )
-        print(settings)
+        OvertoolsManagement.load_data(False)
+        decode_material(settings)
         return {'FINISHED'}
 
 

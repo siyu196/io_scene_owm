@@ -2,6 +2,7 @@ import bpy
 
 from io_scene_owm.operator.importers import ImportOWMAT, ImportOWMDL, ImportOWENTITY, ImportOWMAP, ImportOWEFFECT
 from io_scene_owm.operator import CleanupHardpoints, CleanupMaterials, LoadMaterialLibrary, SaveMaterialLibrary, UtilityPanel, OvertoolsSettings
+import io_scene_owm.structures.OvertoolsManagement as OvertoolsManagement
 
 classes = (
     ImportOWMAT.ImportOvertoolsMaterial,
@@ -33,13 +34,13 @@ def register():
     for impl in import_impl:
         bpy.types.TOPBAR_MT_file_import.append(impl)
 
-    bpy.types.Scene.overtools_internal_settings = bpy.props.PointerProperty(type=OvertoolsSettings.OvertoolsInternalSettings)
+    bpy.types.scene.overtools_internal_settings = bpy.props.PointerProperty(type=OvertoolsSettings.OvertoolsInternalSettings)
 
-    # bpy.app.handlers.load_post.append(owm_reset)
+    bpy.app.handlers.load_post.append(OvertoolsManagement.reset)
 
 
 def unregister():
-    # owm_reset()
+    OvertoolsManagement.reset()
 
     for cls in classes:
         bpy.utils.unregister_class(cls)
@@ -47,5 +48,5 @@ def unregister():
     for impl in import_impl:
         bpy.types.TOPBAR_MT_file_import.remove(impl)
 
-    # bpy.app.handlers.load_post.remove(owm_reset)
-    bpy.types.Scene.overtools_internal_settings = None
+    bpy.app.handlers.load_post.remove(OvertoolsManagement.reset)
+    bpy.types.scene.overtools_internal_settings = None

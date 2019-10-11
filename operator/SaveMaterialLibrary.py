@@ -1,4 +1,5 @@
 import bpy
+import io_scene_owm.structures.OvertoolsManagement as OvertoolsManagement
 
 
 class SaveMaterialLibrary(bpy.types.Operator):
@@ -6,7 +7,7 @@ class SaveMaterialLibrary(bpy.types.Operator):
     bl_label = 'Save OWM Library'
 
     def execute(self, context):
-        # TODO: owm_types.create_overwatch_library()
+        OvertoolsManagement.create_overwatch_library()
         return {'FINISHED'}
 
     def invoke(self, context, event):

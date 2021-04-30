@@ -27,7 +27,8 @@ DefaultTextureTypes = {
     'NodeGroups': {
         'Default': 'OWM: Metallic'
     },
-    "Scale": []
+    "Scale": [],
+    "Static": {}
 }
 TextureTypes = DefaultTextureTypes
 
@@ -154,6 +155,8 @@ def load_data():
                 print('[owm] old texture map! trying to update')
                 if 'Blend' not in TextureTypes:
                     TextureTypes['Blend'] = ['Opacity', 'Alpha']
+                if 'Scale' not in TextureTypes:
+                    TextureTypes['Scale'] = []
                 if 'Static' not in TextureTypes:
                     TextureTypes['Static'] = {}
             elif TextureTypes['Version'] > MATLIB_VERSION:

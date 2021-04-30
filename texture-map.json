@@ -1,5 +1,5 @@
 {
-    "Version": 2,
+    "Version": 4,
     "_help_how_does_this_work": {
         "Mapping": {
             "Readable Name": [["Color Nodes"], ["Alpha Nodes"], "Shader Input Hash Id", "UV Index", ["UV Input Ids"], ["UV Input Data Offset"], ["UV Input Data Modifier"]],
@@ -113,6 +113,9 @@
         "51": "OWM: Hair",
         "54": "OWM: Refractive",
         "56": "OWM: Decal"
+    },
+    "Static": {
+        "Blend": [0.0, [3238567827], [4], [-1.0]]
     },
     "Scale": [2166182138]
 }

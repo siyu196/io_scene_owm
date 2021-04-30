@@ -157,6 +157,8 @@ def load_data():
             for fname, tdata in TextureTypes['Mapping'].items():
                 TextureTypesById[tdata[2]] = fname
                 print('[owm] %s = %s' % (fname, json.dumps(tdata)))
+            for fname, tdata in TextureTypes['Static'].items():
+                print('[owm] static %s = %s' % (fname, json.dumps(tdata)))
         for node in [node for node in bpy.data.node_groups if node.users == 0 and node.name.startswith('OWM: ')]:
             print('[owm] removing unused node group: %s' % (node.name))
             bpy.data.node_groups.remove(node)

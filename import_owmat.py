@@ -239,6 +239,39 @@ def process_material(material, prefix, root, t):
         if colorNodePoint in scratchSocket:
             if scratchSocket[colorNodePoint].node.image:
                 scratchSocket[colorNodePoint].node.image.colorspace_settings.name = 'sRGB'
+    
+    nodeNames = {}
+
+    for staticName, staticData in tm['Static'].items():
+        if staticName in nodeOverwatch.inputs:
+            nodeOverwatch.inputs[staticName].default_value = staticData[0]
+            if len(staticData) > 1:
+                static_input_hashes = staticData[1]
+                static_input_offsets = staticData[2]
+                static_input_mods = staticData[3]
+                static_type = nodeOverwatch.inputs[staticName].type
+                for static_input_hash, hash_index in enumerate(static_input_hashes):
+                    if static_input_hash in material.static_inputs:
+                        input_chunk = material.static_inputs[static_input_hash][static_input_offsets[hash_index]:]
+                        if static_type == 'VALUE':
+                            if len(input_chunk) >= 4:
+                                static_input_mod = static_input_mods[hash_index]
+                                static_value = struct.unpack('<f', input_chunk)[0]
+                                if static_input_mod < 0.0:
+                                    static_input_mod = abs(static_input_mod) - static_value
+                                else:
+                                    static_input_mod = static_value - static_input_mod
+                                nodeOverwatch.inputs[staticName].default_value = static_input_mod
+                                break
+                        elif static_type == 'RGBA':
+                            if len(input_chunk) >= 16:
+                                nodeOverwatch.inputs[staticName].default_value = struct.unpack('<ffff', input_chunk)
+                                break
+                            elif len(input_chunk) >= 12:
+                                static_color = list(struct.unpack('<fff', input_chunk))
+                                static_color += [1.0]
+                                nodeOverwatch.inputs[staticName].default_value = static_color
+                                break
 
     mat.blend_method = 'HASHED'
     mat.shadow_method = 'HASHED'

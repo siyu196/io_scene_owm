@@ -13,7 +13,7 @@ OWMATTypes = {
     'SHADER': 0x02
 }
 
-MATLIB_VERSION = 2
+MATLIB_VERSION = 4
 
 DefaultTextureTypesById = {}
 DefaultTextureTypes = {
@@ -152,7 +152,12 @@ def load_data():
                 TextureTypes['Version'] = 1
             if TextureTypes['Version'] < MATLIB_VERSION:
                 print('[owm] old texture map! trying to update')
-                TextureTypes['Blend'] = ['Opacity', 'Alpha']
+                if 'Blend' not in TextureTypes:
+                    TextureTypes['Blend'] = ['Opacity', 'Alpha']
+                if 'Static' not in TextureTypes:
+                    TextureTypes['Static'] = {}
+            elif TextureTypes['Version'] > MATLIB_VERSION:
+                print('[owm] warning! texture map is newer than supported maximum. might fail.')
             TextureTypesById = {}
             for fname, tdata in TextureTypes['Mapping'].items():
                 TextureTypesById[tdata[2]] = fname

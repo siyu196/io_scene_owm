@@ -184,8 +184,6 @@ def process_material(material, prefix, root, t):
                     if nodeSocketName in nodeOverwatch.inputs:
                         links.new(nodeTex.outputs['Color'], nodeOverwatch.inputs[nodeSocketName])
                         scratchSocket[colorSocketPoint] = nodeTex.outputs['Color']
-                    else:
-                        print('[import_owmat] could not find node %s on shader group' % (nodeSocketName))
             for alphaSocketPoint in bfTyp[1]:
                 nodeSocketName = alphaSocketPoint
                 if alphaSocketPoint in tm['Alias']:
@@ -194,20 +192,20 @@ def process_material(material, prefix, root, t):
                     if nodeSocketName in nodeOverwatch.inputs:
                         links.new(nodeTex.outputs['Alpha'], nodeOverwatch.inputs[nodeSocketName])
                         scratchSocket[alphaSocketPoint] = nodeTex.outputs['Alpha']
-                    else:
-                        print('[import_owmat] could not find node %s on shader group' % (nodeSocketName))
             uvMap = bfTyp[3] if len(bfTyp) > 3 else 0
             if uvMap != 0:
                 if uvMap < 0:
-                    static_input_hash = bfTyp[4]
-                    static_input_offset = bfTyp[5]
-                    static_input_mod = bfTyp[6]
+                    static_input_hashes = bfTyp[4]
+                    static_input_offsets = bfTyp[5]
+                    static_input_mods = bfTyp[6]
                     uvMap = abs(uvMap)
-                    if static_input_hash in material.static_inputs:
-                        input_chunk = material.static_inputs[static_input_hash][static_input_offset:]
-                        if len(input_chunk) > 1:
-                            uvMap = int(input_chunk[0])
-                            uvMap += static_input_mod
+                    for static_input_hash, hash_index in enumerate(static_input_hashes):
+                        if static_input_hash in material.static_inputs:
+                            input_chunk = material.static_inputs[static_input_hash][static_input_offsets[hash_index]:]
+                            if len(input_chunk) > 1:
+                                uvMap = int(input_chunk[0])
+                                uvMap += static_input_mods[hash_index]
+                            break
                 nodeUV = None
                 if uvMap in uvNodes:
                     nodeUV = uvNodes[uvMap]

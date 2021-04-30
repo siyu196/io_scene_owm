@@ -2,7 +2,7 @@
     "Version": 2,
     "_help_how_does_this_work": {
         "Mapping": {
-            "Readable Name": [["Color Nodes"], ["Alpha Nodes"], "Shader Input Hash Id", "UV Index", "UV Input Id", "UV Input Data Offset", "UV Input Data Modifier"],
+            "Readable Name": [["Color Nodes"], ["Alpha Nodes"], "Shader Input Hash Id", "UV Index", ["UV Input Ids"], ["UV Input Data Offset"], ["UV Input Data Modifier"]],
             "if UV Index is negative, it will try to look up UV Input Data Id in Static Inputs, and decode a single byte at the specified offset": 
             "UV Input Data Modifier adds this value to the resulting UV value."
         },
@@ -15,7 +15,7 @@
         "Scale": "List of static input ids for texture scaling"
     },
     "Mapping": {
-        "Lightmap": [["Lightmap", "AO"], [], 3335614873, -2, 1644699581, 0, 0],
+        "Lightmap": [["Lightmap", "AO"], [], 3335614873, -2, [1922391664, 1644699581], [0, 0], [0, 0]],
         "Decal AO": [["AO"], [], 3761386704],
         "Shader AO": [["AO"], [], 1007310079],
         "Albedo + AO": [["Color"], ["AO"], 2903569922],

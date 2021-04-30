@@ -205,7 +205,7 @@ def process_material(material, prefix, root, t):
                             if len(input_chunk) > 1:
                                 uvMap = int(input_chunk[0])
                                 uvMap += static_input_mods[hash_index]
-                            break
+                                break
                 nodeUV = None
                 if uvMap in uvNodes:
                     nodeUV = uvNodes[uvMap]

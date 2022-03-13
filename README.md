@@ -4,6 +4,6 @@ Blender Import add-on for Overtools
 
 ## Installation
 
-1. 下载[the repository](https://github.com/overtools/io_scene_owm/archive/release.zip)
-2. 在 Blender 中，转到 Edit > Preferences，然后导航到“Add-ons”选项卡。 在这里单击安装并选择 zip 文件。
+1. Download[the repository](https://github.com/overtools/io_scene_owm/archive/release.zip)
+3.  In Blender, go to Edit > Preferences, and navigate to the "Add-ons" tab. In here click install and select the zip file.
 
